@@ -1,11 +1,16 @@
 [project]
 name = "hello-ci-cd"
 version = "0.1.0"
-description = "A small project for CI/CD testing"
+description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.13"
-dependencies = ["pytest"]  # pytest is declared here so no pip needed in workflow
 
 [build-system]
-requires = ["setuptools>=61.0", "wheel"]
-build-backend = "setuptools.build_meta"
+requires = ["uv"]
+build-backend = "uv.build"
+
+[tool.uv]
+python-preference = "only-managed"
+
+[tool.uv.extra-build-dependencies]
+hello-ci-cd = ["pytest"]
