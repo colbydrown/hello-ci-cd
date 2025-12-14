@@ -6,7 +6,8 @@ readme = "README.md"
 requires-python = ">=3.13"
 
 [build-system]
-requires = ["uv"]
+# Add uv.build here
+requires = ["uv", "uv.build"]
 build-backend = "uv.build"
 
 [tool.uv]
