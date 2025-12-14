@@ -18,6 +18,5 @@ jobs:
         uses: astral-sh/setup-uv@v7
 
       - name: Run tests
-        run: |
-          PYTHONPATH=. uv run pytest tests
+        run: uv run pytest tests
 
