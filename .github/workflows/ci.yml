@@ -11,12 +11,12 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
+      - name: Checkout repo
         uses: actions/checkout@v3
 
-      - name: Install uv
-        uses: astral-sh/setup-uv@v7
+      - name: Install UV
+        run: curl -sSL https://install.urschrei.io/uv | bash
 
       - name: Run tests
-        run: uv run pytest tests
+        run: PYTHONPATH=. uv run pytest tests
 

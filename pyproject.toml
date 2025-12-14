@@ -1,14 +1,10 @@
 [project]
 name = "hello-ci-cd"
 version = "0.1.0"
-description = "Add your description here"
+description = "A small project for CI/CD testing"
 readme = "README.md"
 requires-python = ">=3.13"
-dependencies = []
+dependencies = ["pytest"]
 
 [tool.uv]
-name = "hello-ci-cd"
-version = "0.1.0"
-
-[tool.uv.dependencies]
-pytest = "*"
+python-preference = "only-managed"
