@@ -14,14 +14,12 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: Install UV
-        run: |
-          curl -sSf https://install.urschrei.dev/uv.sh | sh
-          export PATH="$HOME/.uv/bin:$PATH"
-          uv --version
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: 3.13
 
       - name: Run tests
         run: |
-          export PATH="$HOME/.uv/bin:$PATH"
-          PYTHONPATH=. uv run pytest tests
+          PYTHONPATH=. python3 -m pytest tests
 
