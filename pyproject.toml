@@ -1,17 +1,18 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
 [project]
 name = "hello-ci-cd"
 version = "0.1.0"
 description = "A small project for CI/CD testing"
 readme = "README.md"
-requires-python = ">=3.13"
-
-[build-system]
-# Add uv.build here
-requires = ["uv", "uv.build"]
-build-backend = "uv.build"
+requires-python = ">=3.11"
 
 [tool.uv]
 python-preference = "only-managed"
 
-[tool.uv.extra-build-dependencies]
-hello-ci-cd = ["pytest"]
+[dependency-groups]
+dev = [
+    "pytest>=9.0.2",
+]

@@ -2,22 +2,21 @@ name: CI
 
 on:
   push:
-    branches: [ main ]
+    branches: ["main"]
   pull_request:
-    branches: [ main ]
 
 jobs:
   test:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
+    - uses: actions/checkout@v4
 
-      - name: Install uv
-        uses: astral-sh/setup-uv@v7
+    - uses: actions/setup-python@v5
+      with:
+        python-version: "3.11"
 
-      - name: Run tests with uv
-        run: |
-          PYTHONPATH=. uv run pytest tests
+    - run: pip install uv
+    - run: uv sync
+    - run: uv run pytest
 
