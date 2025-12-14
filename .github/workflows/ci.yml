@@ -14,15 +14,10 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: Install UV
-        run: |
-          curl -sSfL https://raw.githubusercontent.com/urschrei/uv/main/install.sh | bash
-          export PATH="$HOME/.local/bin:$PATH"
-          uv --version  # optional, just to check installation
+      - name: Install uv
+        uses: astral-sh/setup-uv@v7
 
-      - name: Run tests with UV
+      - name: Run tests with uv
         run: |
-          export PATH="$HOME/.local/bin:$PATH"
           PYTHONPATH=. uv run pytest tests
-
 
