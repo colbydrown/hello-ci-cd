@@ -15,8 +15,13 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Install UV
-        uses: astral/uv-action@v0.3.3
+        run: |
+          curl -sSf https://install.urschrei.dev/uv.sh | sh
+          export PATH="$HOME/.uv/bin:$PATH"
+          uv --version
 
       - name: Run tests
-        run: uv run pytest tests
+        run: |
+          export PATH="$HOME/.uv/bin:$PATH"
+          PYTHONPATH=. uv run pytest tests
 
